@@ -1,0 +1,12 @@
+INFO	2021/04/22 14:34:35 Открытие файла: ./dir/urls.txt
+INFO	2021/04/22 14:34:35 Чтение файла: ./dir/urls.txt
+ERROR	2021/04/22 14:34:35 index.go:93: Get https:///golangs.org//openfile-mkdir: http: no Host in request URL
+INFO	2021/04/22 14:36:36 Открытие файла: ./dir/urls.txt
+INFO	2021/04/22 14:36:36 Чтение файла: ./dir/urls.txt
+ERROR	2021/04/22 14:36:36 index.go:93: Get https:///golangs.org//openfile-mkdir: http: no Host in request URL
+INFO	2021/04/22 14:36:47 Открытие файла: ./dir/urls2.txt
+INFO	2021/04/22 14:36:47 Чтение файла: ./dir/urls2.txt
+INFO	2021/04/22 14:36:48 Отправка GET запроса на адрес: https://golangs.org/openfile-mkdir
+INFO	2021/04/22 14:36:48 Получение данных с адреса: https://golangs.org/openfile-mkdir
+INFO	2021/04/22 14:36:48 Создание файла: ./dir/golangs.org.openfile-mkdir.html
+INFO	2021/04/22 14:36:48 Запись в файл: ./dir/golangs.org.openfile-mkdir.html
