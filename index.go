@@ -4,15 +4,18 @@ import (
 	"bufio"
 	"errors"
 	"flag"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"path"
 	"strings"
+	"time"
 )
 
 func main() {
+
 	// чтение аргументов
 	var (
 		datafile *string
@@ -43,11 +46,9 @@ func main() {
 	// чтение файла
 	writeInfo("Чтение файла: "+*datafile, *logFlag)
 	scanner := bufio.NewScanner(urlFile)
-	//log.Println(scanner)
 
+	start := time.Now()
 	for scanner.Scan() {
-		//log.Println(scanner)
-		//log.Println(scanner.Scan())
 		address := string(scanner.Text())
 		body := MakeRequest(address, *logFlag)
 
@@ -69,10 +70,13 @@ func main() {
 		file.Write(body)
 		writeInfo("Запись в файл: "+filePath, *logFlag)
 	}
+	elapsedTime := time.Since(start)
 
 	if err := scanner.Err(); err != nil {
 		writeError(err, *logFlag)
 	}
+
+	fmt.Println("Total Time For Execution: " + elapsedTime.String())
 }
 
 // функция отправляет запрос и получает данные
@@ -125,15 +129,15 @@ func writeInfo(infoMessage string, logFlag bool) {
 }
 
 func writeError(errorMessage error, logFlag bool) {
-	logFile, err := os.OpenFile("info.log", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer logFile.Close()
-
-	errorLogFile := log.New(logFile, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
 
 	if logFlag {
+		logFile, err := os.OpenFile("info.log", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer logFile.Close()
+
+		errorLogFile := log.New(logFile, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
 		errorLogFile.Println(errorMessage)
 	}
 	log.Println(errors.New("ERROR\t"), errorMessage)

@@ -1,4 +1,12 @@
 https://golangs.org/openfile-mkdir
-://golangs.org/goroutines
+https://golangs.org/goroutines
 https://golangbyexample.com/append-file-golang
+https://metanit.com/go/tutorial
+https://wiki.dieg.info
+https://www.postgresql.org
+https://habr.com
+https://habr.com/ru/post/195574
+https://medium.com
+https://golangs.org/goroutines
+https://golangforall.com
 https://metanit.com/go/tutorial
